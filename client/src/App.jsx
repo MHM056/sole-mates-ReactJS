@@ -1,8 +1,14 @@
-import { Footer } from "./components/Footer";
+import { Footer } from "./components/footer/Footer";
+import { Header } from "./components/header/Header";
 
 function App() {
   return (
-    <Footer />
+    <>
+    <div id="wrapper">
+      <Header />
+    </div>
+      <Footer />
+    </>
   )
 }
 
