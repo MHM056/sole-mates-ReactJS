@@ -7,10 +7,11 @@ import { Register } from "./components/register/Register";
 import { Login } from "./components/login/Login";
 import { CreatePair } from "./components/create-pair/CreatePair";
 import { Search } from "./components/search/Search";
+import { AuthProvider } from "./contexts/authContext";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <div id="wrapper">
         <Header />
 
@@ -24,7 +25,7 @@ function App() {
 
       </div>
       <Footer />
-    </>
+    </AuthProvider>
   )
 }
 
