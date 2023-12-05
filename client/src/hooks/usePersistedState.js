@@ -5,7 +5,7 @@ export const usePersistedState = (defaultValue) => {
         const persistedState = localStorage.getItem('auth');
 
         if (persistedState) {
-            return JSON.stringify(persistedState);
+            return JSON.parse(persistedState);
         }
 
         return defaultValue;

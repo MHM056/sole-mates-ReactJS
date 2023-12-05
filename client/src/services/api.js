@@ -4,8 +4,8 @@ async function request(method, url, data) {
         method,
         headers: {}
     }
-
-    const userData = localStorage.getItem('auth');
+    
+    const userData = JSON.parse(localStorage.getItem('auth'));
 
     if (userData) {
         options.headers['X-Authorization'] = userData.accessToken;
@@ -25,9 +25,9 @@ async function request(method, url, data) {
         }
 
         if (response.ok == false) {
-            if (response.status == 403) {
-                localStorage.removeItem('auth');
-            }
+            // if (response.status == 403) {
+            //     localStorage.clear();
+            // }
             const error = result;
             throw error;
         }
