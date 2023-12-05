@@ -1,5 +1,3 @@
-import { clearUserData, getUserData } from "../utils/localStorage";
-
 async function request(method, url, data) {
 
     const options = {
@@ -7,7 +5,7 @@ async function request(method, url, data) {
         headers: {}
     }
 
-    const userData = getUserData();
+    const userData = localStorage.getItem('auth');
 
     if (userData) {
         options.headers['X-Authorization'] = userData.accessToken;
@@ -28,7 +26,7 @@ async function request(method, url, data) {
 
         if (response.ok == false) {
             if (response.status == 403) {
-                clearUserData();
+                localStorage.removeItem('auth');
             }
             const error = result;
             throw error;

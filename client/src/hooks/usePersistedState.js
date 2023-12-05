@@ -1,13 +1,12 @@
 import { useState } from "react"
-import { getUserData, setUserData } from "../utils/localStorage"
 
 export const usePersistedState = (defaultValue) => {
 
     const [state, setState] = useState(() => {
-        const persistedState = getUserData();
+        const persistedState = localStorage.getItem('auth');
 
         if (persistedState) {
-            return persistedState;
+            return JSON.stringify(persistedState);
         }
 
         return defaultValue;
@@ -19,12 +18,12 @@ export const usePersistedState = (defaultValue) => {
         setState(value);
 
         if (typeof value === 'function') {
-            serializedValue = value(state);
+            serializedValue = JSON.stringify(value(state));
         } else {
-            serializedValue = value;
+            serializedValue = JSON.stringify(value);
         }
 
-        setUserData(serializedValue);
+        localStorage.setItem('auth', serializedValue);
 
     };
 
