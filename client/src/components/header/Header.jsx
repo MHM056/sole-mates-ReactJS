@@ -7,7 +7,6 @@ export const Header = () => {
 
     return (
         <header>
-            {/* <!-- Navigation --> */}
             <Link id="logo" to="/"><img id="logo-img" src="./images/logo.png" alt="" /></Link>
 
             <nav>
@@ -16,7 +15,6 @@ export const Header = () => {
                     <Link to="/search">Search</Link>
                 </div>
 
-                {/* <!-- Logged-in users --> */}
                 {isAuthenticated && (
                     <div className="user">
                     <Link to="/pairs/create">Add Pair</Link>
@@ -25,7 +23,6 @@ export const Header = () => {
                 </div>
                 )}
 
-                {/* <!-- Guest users --> */}
                 {!isAuthenticated && (
                 <div className="guest">
                     <Link to="/login">Login</Link>
