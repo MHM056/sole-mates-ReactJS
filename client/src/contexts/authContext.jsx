@@ -14,7 +14,6 @@ export const AuthProvider = ({
     const [auth, setAuth] = usePersistedState({});
 
     const loginSubmitHandler = async (values) => {
-        debugger;
         const result = await authService.login(values.email, values.password);
 
         setAuth(result);
@@ -24,8 +23,17 @@ export const AuthProvider = ({
         navigate('/');
     };
 
+    const logoutHandler = () => {
+        setAuth({});
+
+        localStorage.removeItem('accessToken');
+
+        navigate('/');
+    };
+
     const values = {
         loginSubmitHandler,
+        logoutHandler,
         userId: auth._id,
         username: auth.username,
         email: auth.email,

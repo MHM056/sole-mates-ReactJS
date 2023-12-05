@@ -11,3 +11,7 @@ export async function register(email, password) {
     const result = await post(`${baseURL}/register`, { email, password });
     return result;
 }
+
+export async function logout() {
+    await get(`${baseURL}/logout`);
+}

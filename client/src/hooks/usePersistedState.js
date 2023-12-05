@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 export const usePersistedState = (defaultValue) => {
-
     const [state, setState] = useState(() => {
         const persistedState = localStorage.getItem('auth');
 
