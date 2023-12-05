@@ -11,7 +11,6 @@ import { Search } from "./components/search/Search";
 import { AuthProvider } from "./contexts/authContext";
 
 function App() {
-  debugger;
   return (
     <AuthProvider>
       <div id="wrapper">
