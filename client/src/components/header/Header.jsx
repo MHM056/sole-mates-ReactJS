@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 
 export const Header = () => {
-    const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated, email } = useContext(AuthContext);
 
     return (
         <header>
@@ -18,9 +18,10 @@ export const Header = () => {
 
                 {/* <!-- Logged-in users --> */}
                 {isAuthenticated && (
-                <div className="user">
+                    <div className="user">
                     <Link to="/pairs/create">Add Pair</Link>
                     <Link to="/logout">Logout</Link>
+                    <span>| {email}</span>
                 </div>
                 )}
 
