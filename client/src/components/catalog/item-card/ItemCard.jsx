@@ -13,7 +13,7 @@ export const ItemCard = ({
 
     return (
         <li className="card">
-            <img src={imageUrl} alt="travis" />
+            <img src={imageUrl} alt={model} />
             <p>
                 <strong>Brand: </strong><span className="brand">{brand}</span>
             </p>

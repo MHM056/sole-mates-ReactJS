@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import { AuthProvider } from "./contexts/authContext";
+
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { Home } from "./components/home/Home";
@@ -8,8 +10,8 @@ import { Login } from "./components/login/Login";
 import { Logout } from "./components/logout/Logout";
 import { CreatePair } from "./components/create-pair/CreatePair";
 import { Search } from "./components/search/Search";
-import { AuthProvider } from "./contexts/authContext";
 import { Catalog } from "./components/catalog/Catalog";
+import { ShoeDetails } from "./components/shoe-details/ShoeDetails";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/pairs/create" element={<CreatePair />} />
+          <Route path="/pairs/:shoeId/details" element={<ShoeDetails />} />
           <Route path="/search" element={<Search />} />
         </Routes>
 
