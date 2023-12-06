@@ -16,7 +16,26 @@ export const AuthProvider = ({
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 
-        setAuth(result);
+        setAuth({
+            _id: result._id,
+            email: result.email,
+            accessToken: result.accessToken
+        });
+
+        localStorage.setItem('accessToken', result.accessToken);
+
+        navigate('/');
+    };
+
+    const registerSubmitHandler = async (values) => {
+        debugger;
+        const result = await authService.register(values.email, values.password);
+
+        setAuth({
+            _id: result._id,
+            email: result.email,
+            accessToken: result.accessToken
+        });
 
         localStorage.setItem('accessToken', result.accessToken);
 
@@ -32,6 +51,7 @@ export const AuthProvider = ({
     };
 
     const values = {
+        registerSubmitHandler,
         loginSubmitHandler,
         logoutHandler,
         userId: auth._id,
