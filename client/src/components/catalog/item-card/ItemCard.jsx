@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../../contexts/authContext";
 
 export const ItemCard = ({
     _id,
@@ -7,6 +9,8 @@ export const ItemCard = ({
     imageUrl,
     value,
 }) => {
+    const { isAuthenticated } = useContext(AuthContext);
+
     return (
         <li className="card">
             <img src={imageUrl} alt="travis" />
@@ -17,7 +21,9 @@ export const ItemCard = ({
                 <strong>Model: </strong><span className="model">{model}</span>
             </p>
             <p><strong>Value:</strong><span className="value">{value}</span>$</p>
-            <Link className="details-btn" to={`/pairs/${_id}/details`}>Details</Link>
+            {isAuthenticated && (
+                <Link className="details-btn" to={`/pairs/${_id}/details`}>Details</Link>
+            )}
         </li>
     );
 };
