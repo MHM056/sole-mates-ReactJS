@@ -7,4 +7,9 @@ export const getAll = async () => {
     return result;
 };
 
+export const getOne = async (shoeId) => {
+    const result = await get(`${baseURL}/${shoeId}`);
+    return result;
+};
+
 export const create = async (shoeData) => post(baseURL, shoeData);
