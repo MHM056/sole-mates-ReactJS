@@ -35,6 +35,9 @@ async function request(method, url, data) {
         return result;
 
     } catch (error) {
+        if(error.message == 'Resource not found') {
+            return [];
+        }
         alert(error.message);
         throw error;
     }
