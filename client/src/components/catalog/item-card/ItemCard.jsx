@@ -1,15 +1,23 @@
-export const ItemCard = () => {
+import { Link } from "react-router-dom";
+
+export const ItemCard = ({
+    _id,
+    brand,
+    model,
+    imageUrl,
+    value,
+}) => {
     return (
         <li className="card">
-            <img src="./images/travis.jpg" alt="travis" />
+            <img src={imageUrl} alt="travis" />
             <p>
-                <strong>Brand: </strong><span className="brand">Air Jordan</span>
+                <strong>Brand: </strong><span className="brand">{brand}</span>
             </p>
             <p>
-                <strong>Model: </strong><span className="model">1 Retro High TRAVIS SCOTT</span>
+                <strong>Model: </strong><span className="model">{model}</span>
             </p>
-            <p><strong>Value:</strong><span className="value">2000</span>$</p>
-            <a className="details-btn" href="">Details</a>
+            <p><strong>Value:</strong><span className="value">{value}</span>$</p>
+            <Link className="details-btn" to={`/pairs/${_id}/details`}>Details</Link>
         </li>
     );
 };
