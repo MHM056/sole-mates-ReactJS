@@ -13,3 +13,8 @@ export const getOne = async (shoeId) => {
 };
 
 export const create = async (shoeData) => post(baseURL, shoeData);
+
+export const search = async (query) => {
+    const result = await get(`${baseURL}?where=brand%20LIKE%20%22${query}%22`);
+    return result;
+};
