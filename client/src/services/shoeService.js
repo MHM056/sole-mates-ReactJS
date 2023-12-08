@@ -19,3 +19,5 @@ export const search = async (searchValue) => {
     const result = await get(`${baseURL}?where=brand%20LIKE%20%22${query}%22`);
     return result;
 };
+
+export const edit = async (shoeData, shoeId) => post(`${baseURL}/${shoeId}`, shoeData); 
