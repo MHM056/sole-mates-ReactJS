@@ -1,4 +1,4 @@
-import { get, post } from "./api";
+import { del, get, post, put } from "./api";
 
 const baseURL = 'http://localhost:3030/data/shoes';
 
@@ -20,4 +20,6 @@ export const search = async (searchValue) => {
     return result;
 };
 
-export const edit = async (shoeData, shoeId) => post(`${baseURL}/${shoeId}`, shoeData); 
+export const edit = async (shoeId, shoeData) => put(`${baseURL}/${shoeId}`, shoeData);
+
+export const remove = async (shoeId) => del(`${baseURL}/${shoeId}`);
