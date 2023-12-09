@@ -16,6 +16,8 @@ export const Search = () => {
         const result = await shoeService.search(searchValue);
 
         setFoundItem(result);
+
+        setSearchValue('');
     };
 
     return (
@@ -35,7 +37,7 @@ export const Search = () => {
                 </ul>
             </div>
 
-                {foundItem.length === 0 && <h2>There are no results found.</h2>}
+            {foundItem.length === 0 && <h2>There are no results found.</h2>}
         </section>
     );
 };
