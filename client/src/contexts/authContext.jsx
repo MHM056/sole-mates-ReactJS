@@ -1,6 +1,8 @@
 import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { usePersistedState } from "../hooks/usePersistedState";
+
 import * as authService from "../services/authService";
 
 const AuthContext = createContext();
@@ -28,7 +30,6 @@ export const AuthProvider = ({
     };
 
     const registerSubmitHandler = async (values) => {
-        debugger;
         const result = await authService.register(values.email, values.password);
 
         setAuth({

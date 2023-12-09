@@ -25,6 +25,8 @@ export const Register = () => {
                         value={values.email}
                         onChange={onChange}
                     />
+                    {/* <p id="emailError" className="error">{errors && errors.email}</p> */}
+
                     <input
                         type="password"
                         name="password"
@@ -33,6 +35,8 @@ export const Register = () => {
                         value={values.password}
                         onChange={onChange}
                     />
+                    {/* <p id="passwordError" className="error">{errors && errors.password}</p> */}
+
                     <input
                         type="password"
                         name="confirmPassword"
@@ -41,6 +45,7 @@ export const Register = () => {
                         value={values.confirmPassword}
                         onChange={onChange}
                     />
+                    {/* <p id="confirmPasswordError" className="error">{errors && errors.confirmPassword}</p> */}
                     <button type="submit">login</button>
                     <p className="message">Already registered? <Link to="/login">Login</Link></p>
                 </form>
