@@ -12,6 +12,7 @@ import { CreatePair } from "./components/create-pair/CreatePair";
 import { Search } from "./components/search/Search";
 import { Catalog } from "./components/catalog/Catalog";
 import { ShoeDetails } from "./components/shoe-details/ShoeDetails";
+import { EditPair } from "./components/edit-pair/EditPair";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/pairs/create" element={<CreatePair />} />
           <Route path="/pairs/:shoeId/details" element={<ShoeDetails />} />
+          <Route path="/pairs/:shoeId/edit" element={<EditPair />} />
           <Route path="/search" element={<Search />} />
         </Routes>
 

@@ -1,20 +1,32 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import * as shoeService from "../../services/shoeService";
 import AuthContext from "../../contexts/authContext";
 
 export const ShoeDetails = () => {
+    const navigate = useNavigate();
     const { userId } = useContext(AuthContext);
     const { shoeId } = useParams();
     const [pair, setPair] = useState({});
     const isAuthor = userId === pair._ownerId;
 
-
     useEffect(() => {
         shoeService.getOne(shoeId)
             .then(setPair);
     }, [shoeId]);
+
+
+    const onDelete = async (e) => {
+        e.preventDefault();
+
+        const hasConfirmed = confirm('Are you sure you want to delete this game?');
+
+        if (hasConfirmed) {
+            await shoeService.remove(shoeId);
+            navigate('/catalog');
+        }
+    }
 
     return (
         <section id="details">
@@ -33,11 +45,10 @@ export const ShoeDetails = () => {
                     <p>Value: <span id="details-value">{pair.value}</span></p>
                 </div>
 
-                {/* <!--Edit and Delete are only for creator--> */}
                 {isAuthor && (
                     <div id="action-buttons">
-                        <a href="" id="edit-btn">Edit</a>
-                        <a href="" id="delete-btn">Delete</a>
+                        <Link to={`/pairs/${shoeId}/edit`} id="edit-btn">Edit</Link>
+                        <a onClick={onDelete} href="" id="delete-btn">Delete</a>
                     </div>
                 )}
             </div>
