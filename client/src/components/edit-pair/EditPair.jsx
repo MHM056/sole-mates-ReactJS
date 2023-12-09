@@ -11,7 +11,7 @@ export const EditPair = () => {
     useEffect(() => {
         shoeService.getOne(shoeId)
             .then(setValues);
-    }, []);
+    }, [shoeId]);
 
     const onChange = (e) => {
         setValues(state => ({ ...state, [e.target.name]: e.target.value }));
