@@ -13,6 +13,7 @@ import { Search } from "./components/search/Search";
 import { Catalog } from "./components/catalog/Catalog";
 import { ShoeDetails } from "./components/shoe-details/ShoeDetails";
 import { EditPair } from "./components/edit-pair/EditPair";
+import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {
   return (
@@ -24,17 +25,20 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/catalog" element={<Catalog />} />
-          <Route path="/pairs/create" element={<CreatePair />} />
           <Route path="/pairs/:shoeId/details" element={<ShoeDetails />} />
-          <Route path="/pairs/:shoeId/edit" element={<EditPair />} />
           <Route path="/search" element={<Search />} />
+
+          <Route element={<AuthGuard />}>
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/pairs/create" element={<CreatePair />} />
+            <Route path="/pairs/:shoeId/edit" element={<EditPair />} />
+          </Route>
         </Routes>
 
       </div>
       <Footer />
-    </AuthProvider>
+    </AuthProvider >
   )
 }
 
