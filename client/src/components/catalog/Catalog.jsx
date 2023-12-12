@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import * as shoeService from "../../services/shoeService";
-import { ItemCard } from "./item-card/ItemCard";
+import ItemCard from "./item-card/ItemCard";
 
-export const Catalog = () => {
+export default function Catalog() {
     const [shoes, setShoes] = useState([]);
 
     useEffect(() => {

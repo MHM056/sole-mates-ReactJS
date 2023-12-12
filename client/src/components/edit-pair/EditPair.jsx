@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import * as shoeService from "../../services/shoeService";
 
-export const EditPair = () => {
+export default function EditPair() {
     const navigate = useNavigate();
     const { shoeId } = useParams();
     const [values, setValues] = useState({});

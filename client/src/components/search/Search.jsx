@@ -1,8 +1,8 @@
 import { useState } from "react";
 import * as shoeService from "../../services/shoeService";
-import { ItemCard } from "../catalog/item-card/ItemCard";
+import ItemCard from "../catalog/item-card/ItemCard";
 
-export const Search = () => {
+export default function Search() {
     const [foundItem, setFoundItem] = useState([]);
     const [searchValue, setSearchValue] = useState('');
 

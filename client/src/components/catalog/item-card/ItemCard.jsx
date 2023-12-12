@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../contexts/authContext";
 
-export const ItemCard = ({
+export default function ItemCard({
     _id,
     brand,
     model,
     imageUrl,
     value,
-}) => {
+}) {
     const { isAuthenticated } = useContext(AuthContext);
 
     return (

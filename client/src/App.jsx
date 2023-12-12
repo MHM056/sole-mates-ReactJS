@@ -2,17 +2,17 @@ import { Routes, Route } from "react-router-dom";
 
 import { AuthProvider } from "./contexts/authContext";
 
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
-import { Home } from "./components/home/Home";
-import { Register } from "./components/register/Register";
-import { Login } from "./components/login/Login";
-import { Logout } from "./components/logout/Logout";
-import { CreatePair } from "./components/create-pair/CreatePair";
-import { Search } from "./components/search/Search";
-import { Catalog } from "./components/catalog/Catalog";
-import { ShoeDetails } from "./components/shoe-details/ShoeDetails";
-import { EditPair } from "./components/edit-pair/EditPair";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Home from "./components/home/Home";
+import Register from "./components/register/Register";
+import Login from "./components/login/Login";
+import Logout from "./components/logout/Logout";
+import CreatePair from "./components/create-pair/CreatePair";
+import Search from "./components/search/Search";
+import Catalog from "./components/catalog/Catalog";
+import ShoeDetails from "./components/shoe-details/ShoeDetails";
+import EditPair from "./components/edit-pair/EditPair";
 import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {

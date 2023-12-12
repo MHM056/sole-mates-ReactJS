@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import AuthContext from "../../contexts/authContext";
 
-export const Register = () => {
+export default function Register() {
     const { registerSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
         email: '',

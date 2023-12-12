@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as shoeService from "../../services/shoeService";
 import { useNavigate } from "react-router-dom";
 
-export const CreatePair = () => {
+export default function CreatePair() {
     const navigate = useNavigate();
 
     const [values, setValues] = useState({

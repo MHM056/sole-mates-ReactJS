@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import * as shoeService from "../../services/shoeService";
 import AuthContext from "../../contexts/authContext";
 
-export const ShoeDetails = () => {
+export default function ShoeDetails() {
     const navigate = useNavigate();
     const { userId } = useContext(AuthContext);
     const { shoeId } = useParams();
