@@ -1,30 +1,27 @@
-export const validateRegister = (data) => {
+export const validateRegister = (formValues) => {
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const result = {};
 
-    if (!data.email.match(emailPattern)) {
-        result.email = 'Invalid email';
+    if (!formValues.email.match(emailPattern)) {
+        alert('Invalid email');
+        return;
     }
 
-    if (data.password === '') {
-        result.password = 'Field is required';
+    if (formValues.password === '') {
+        alert('Password is required');
+        return;
     }
 
-    if (data.confirmPassword === '') {
-        result.confirmPassword = 'Field is required';
+    if (formValues.confirmPassword === '') {
+        alert('Confirm password is required');
+        return;
     }
 
-    if (data.password !== data.confirmPassword) {
-        result.password = 'Password missmatch';
-        result.confirmPassword = 'Password missmatch';
+    if (formValues.password !== formValues.confirmPassword) {
+        alert('Password missmatch');
+        return;
     }
 
-    if (result.hasOwnProperty('email') ||
-        result.hasOwnProperty('password') ||
-        result.hasOwnProperty('confirmPassword')) {
-            return result;
-        }
-
-        return true;
+    return true;
 }
