@@ -11,7 +11,7 @@ export const validateRegister = (formValues) => {
         alert('Password is required');
         return;
     }
-    
+
     if (formValues.password.length < 4 || formValues.password.length > 10) {
         alert('Password should be between 4 and 10 characters');
         return;
@@ -28,4 +28,51 @@ export const validateRegister = (formValues) => {
     }
 
     return true;
-}
+};
+
+export const createForm = (values) => {
+
+    const urlPattern = /^http?s:\/\//;
+
+    if (values.brand === '') {
+        alert('Brand is required');
+        return;
+    }
+
+    if (values.model === '') {
+        alert('Model is required');
+        return;
+    }
+
+    if (values.model === '') {
+        alert('Model is required');
+        return;
+    }
+
+    if (values.imageUrl === '') {
+        alert('Image is required');
+        return;
+    }
+
+    if (!urlPattern.match(values.imageUrl)) {
+        alert('Invalid URL');
+        return;
+    }
+
+    if (values.release === '') {
+        alert('Release is required');
+        return;
+    }
+
+    if (values.designer === '') {
+        alert('Designer is required');
+        return;
+    }
+
+    if (values.value === '') {
+        alert('Value is required');
+        return;
+    }
+    
+    return true;
+};
